@@ -1,7 +1,7 @@
 {
   "name": "nawk",
   "version": "1.0.0",
-  "description": "awk for people who hate awk",
+  "description": "Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk.",
   "main": "index.js",
   "dependencies": {
     "ava": "^0.16.0"

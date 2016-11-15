@@ -3,8 +3,12 @@
 
 let createReadStream = require('fs').createReadStream
 let argv = process.argv.slice(2)
-let fawk = require('../index')
+let nawk = require('../index')
 let inputStream
+
+function usage () {
+  console.log('nawk <expression> <commands> <options>')
+}
 
 // dang MB is a smart fellow http://stackoverflow.com/a/15485424/1048479
 if (process.stdin.isTTY) {
@@ -15,14 +19,21 @@ if (process.stdin.isTTY) {
   inputStream = process.stdin
 }
 
+if (argv.length === 0) {
+  return usage()
+} else if (argv[0].indexOf('--') === 0) {
+  console.warn(`Invalid expression '${argv[0]}' provided`)
+  return usage();
+}
+
 inputStream.on('error', (e) => {
   if (e.code === 'ENOENT') {
     console.warn(`Specified input file: ${e.path} does not exist`)
   }
 })
 
-inputStream.on('data', (data) => {
-  let dataChunk = data.toString();
-  fawk(argv)
-  process.stdout.write()
+inputStream.on('data', (buffer) => {
+  let dataChunk = buffer.toString();
+  let processed = nawk(dataChunk, argv)
+  process.stdout.write(processed)
 })
