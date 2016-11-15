@@ -10,17 +10,17 @@ function templateify (expression, context) {
   })
 }
 
-function lineify (input, expression, delim = 'tab') {
+function process (input = '', expression, delim = 'tab') {
   let columns = input.split(delims[delim])
   let context = columns.reduce((accum, item, index) => {
-    accum[`$${index}`] = item
+    accum[`$${index + 1}`] = item
     return accum;
   }, {
     // "special" globals on context
-    '$line': columns.join(' ')
+    '$0': columns.join(' ')
   })
 
   return templateify(expression, context)
 }
 
-module.exports = lineify
+module.exports = process

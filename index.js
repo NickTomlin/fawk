@@ -6,7 +6,7 @@ let parseArgs = require('./src/parse-args')
 let reifyCommands = require('./src/reify-commands')
 
 function fawk(input, argv) {
-  let [expression, ...args] = argv
+  let [expression, ...args] = argv || []
   let [tree, options] = parseArgs(args)
   let commands = reifyCommands(tree)
   let processedLine = process(input, expression)
@@ -19,7 +19,7 @@ function fawk(input, argv) {
     } else {
       return input
     }
-  }, '')
+  }, processedLine)
 }
 
 module.exports = fawk
