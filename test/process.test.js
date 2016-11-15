@@ -1,3 +1,5 @@
+'use strict'
+
 let test = require('ava').test
 let process = require('../src/process')
 

@@ -1,3 +1,5 @@
+'use strict'
+
 let test = require('ava').test
 let reifyCommands = require('../src/reify-commands')
 

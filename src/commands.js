@@ -1,3 +1,5 @@
+'use strict'
+
 function append (item, input) {
   return input + item
 }

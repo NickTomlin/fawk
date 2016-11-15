@@ -1,3 +1,5 @@
+'use strict'
+
 let commands = require('./commands')
 
 function partial (fn, ...initialArgs) {

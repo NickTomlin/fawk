@@ -1,3 +1,5 @@
+'use strict'
+
 let flags = require('./src/commands')
 let process = require('./src/process')
 let parseArgs = require('./src/parse-args')
