@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+let createReadStream = require('fs').createReadStream
+let argv = process.argv.slice(2)
+let fawk = require('../index')
+let inputStream
+
+// dang MB is a smart fellow http://stackoverflow.com/a/15485424/1048479
+if (process.stdin.isTTY) {
+  // we expect a filename to be the first argument
+  let filename = argv.shift()
+  inputStream = createReadStream(filename)
+} else {
+  inputStream = process.stdin
+}
+
+inputStream.on('error', (e) => {
+  if (e.code === 'ENOENT') {
+    console.warn(`Specified input file: ${e.path} does not exist`)
+  }
+})
+
+inputStream.on('data', (data) => {
+  let dataChunk = data.toString();
+  fawk(argv)
+  process.stdout.write()
+})

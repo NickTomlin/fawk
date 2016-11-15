@@ -3,6 +3,11 @@ fawk
 
 awk for people who ~~don't like~~ need the complexity of awk.
 
+```shell
+fawk <filename> <expression: '$0'> <options>
+input | fawk <expression: '$0'> <options>
+```
+
 Surround each item with double quotes:
 
 ```
@@ -12,7 +17,7 @@ fawk
 ```
 
 ```
-cat my_file | nawk '"\1"'
+cat my_file | fawk '"$1"'
 "oh"
 "fawk"
 ```
@@ -20,24 +25,17 @@ cat my_file | nawk '"\1"'
 Surround each item with double quotes and append a comma:
 
 ```
-cat my_file | nawk '"\1"' --append ','
+cat my_file | fawk '"$1"' --append ','
 
 "oh",
 "fawk",
 ```
 
-Surround each item with double quotes and append a comma, but not on the last line
+Surround each item with double quotes and append a comma, but not on lines that contain the phrase 'oh'
 
 ```
-cat my_file | nawk '"\1"' --append ',' unless '\line=last'
+cat my_file | fawk '"\1"' --append ',' --unless '/oh/'
 
-"oh",
-"fawk"
-```
-
-Surround each item with double quotes and append a comma, but not on the last line. BUT also ignore it if it contains the string "foo"
-
-```
-cat my_file | nawk '"\1"' ignore '\contains fawk' --append ',' unless '\line=last'
 "oh"
+"fawk",
 ```
