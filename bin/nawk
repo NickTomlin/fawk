@@ -33,6 +33,7 @@ inputStream.on('error', (e) => {
 })
 
 inputStream.on('data', (buffer) => {
+  // consider splitting on OS line delim here?
   let dataChunk = buffer.toString();
   let processed = nawk(dataChunk, argv)
   process.stdout.write(processed)

@@ -1,5 +1,6 @@
 let test = require('ava').test
 let parseArgs = require('../src/parse-args')
+
 test('parseArgs', t => {
   let args = ['--append', '","', '--unless', '/bad/']
 

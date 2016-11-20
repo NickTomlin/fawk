@@ -8,9 +8,10 @@ function prepend (item, input) {
   return input + item
 }
 
+const isRegexRe = /^\/.*\/$/
+
 function nawkIf (arg, input) {
-  // should probably precompile this
-  if (/^\/.*\/$/.test(arg)) {
+  if (isRegexRe.test(arg)) {
     arg = arg.slice(1, arg.length - 1)
   }
 
@@ -40,6 +41,5 @@ const commands = {
     fn: unless
   }
 }
-
 
 module.exports = commands

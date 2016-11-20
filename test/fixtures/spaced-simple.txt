@@ -1,0 +1,6 @@
+Jan 1 00:01:18 fffffffff.sand.fffffffffffffffff.com application[5702]: info: [a8059222-e2e0-43bd-9681-4c08559a88d5] Params for GET /heartbeat {}
+Jan 1 00:01:18 fffffffff.sand.fffffffffffffffff.com application[5702]: info: 10.xxx.xxx.xx [a8059222-e2e0-43bd-9681-4c08559a88d5] GET /heartbeat 200 4 ms - checker/1.0
+Jan 1 00:01:26 fffffffff.sand.fffffffffffffffff.com application[5702]: info: [c515eaa9-9f0e-43c8-b37b-fbd28ea4b1a9] Params for GET /heartbeat {}
+Jan 1 00:01:26 fffffffff.sand.fffffffffffffffff.com application[5702]: info: 10.xxx.xxx.xx [c515eaa9-9f0e-43c8-b37b-fbd28ea4b1a9] GET /heartbeat 200 4 ms - checker/1.0
+Jan 1 00:01:48 fffffffff.sand.fffffffffffffffff.com application[5702]: info: [25b49008-4822-4429-a4e4-15c31a4f623f] Params for GET /heartbeat {}
+Jan 1 00:01:48 fffffffff.sand.fffffffffffffffff.com application[5702]: info: 10.xxx.x.xx [25b49008-4822-4429-a4e4-15c31a4f623f] GET /heartbeat 200 4 ms - checker/1.0
