@@ -4,7 +4,7 @@
 let createReadStream = require('fs').createReadStream
 let EOL = require('os').EOL
 let argv = process.argv.slice(2)
-let nawk = require('../index')
+let Nawk = require('../index')
 
 function usage () {
   console.log('nawk <expression> <commands> <options>')
@@ -39,9 +39,10 @@ function main (inputStream) {
 
   inputStream.on('data', (buffer) => {
     let lines = buffer.toString().split(EOL).filter((x) => x !== '')
+    let nawk = new Nawk(argv)
 
     lines.forEach((line, index, arr) => {
-      let processed = nawk(line, argv)
+      let processed = nawk.processLine(line)
       process.stdout.write(`${processed}${EOL}`)
     })
   })
