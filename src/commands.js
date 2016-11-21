@@ -30,7 +30,7 @@ const commands = {
   },
   prepend: {
     type: 'command',
-    fn: append
+    fn: prepend
   },
   if: {
     type: 'condition',

@@ -20,7 +20,7 @@ test('parseArgs', t => {
     ],
     []
   ])
-});
+})
 
 test('multiple args', t => {
   let args = ['--append', '","', '--unless', '/bad/', '--prepend', '$']
@@ -46,4 +46,4 @@ test('multiple args', t => {
     ],
     []
   ])
-});
+})

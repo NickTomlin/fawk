@@ -19,7 +19,7 @@ function reifyCommands (args) {
 
     arg.conditions.map((condition) => {
       if (!commands[condition.name]) { throw new Error(`Unrecognized condition ${condition.name} for command ${arg.name}`) }
-      condition.fn = partial (
+      condition.fn = partial(
         commands[condition.name].fn,
         condition.args
       )

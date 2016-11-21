@@ -1,7 +1,7 @@
 const cmdRegex = /^--(append|prepend)/
 const condRegex = /^--(unless|if)/
 
-function commandArgs(opts = [], args = []) {
+function commandArgs (opts = [], args = []) {
   if (!opts.length || /^--/.test(opts[0])) {
     return [opts, args]
   }

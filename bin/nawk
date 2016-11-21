@@ -5,39 +5,44 @@ let createReadStream = require('fs').createReadStream
 let EOL = require('os').EOL
 let argv = process.argv.slice(2)
 let nawk = require('../index')
-let inputStream
 
 function usage () {
   console.log('nawk <expression> <commands> <options>')
+  console.log('nawk file.txt \'$1\' --append ,')
 }
 
 // dang MB is a smart fellow http://stackoverflow.com/a/15485424/1048479
 if (process.stdin.isTTY) {
   // we expect a filename to be the first argument
-  let filename = argv.shift()
-  inputStream = createReadStream(filename)
+  let filename = argv.shift() || ''
+  main(createReadStream(filename))
 } else {
-  inputStream = process.stdin
+  main(process.stdin)
 }
 
-if (argv.length === 0) {
-  return usage()
-} else if (argv[0].indexOf('--') === 0) {
-  console.warn(`Invalid expression '${argv[0]}' provided`)
-  return usage();
-}
-
-inputStream.on('error', (e) => {
-  if (e.code === 'ENOENT') {
-    console.warn(`Specified input file: ${e.path} does not exist`)
+function main (inputStream) {
+  if (argv.length === 0) {
+    usage()
+    process.exit(1)
+  } else if (argv[0].indexOf('--') === 0) {
+    usage()
+    process.exit(1)
   }
-})
 
-inputStream.on('data', (buffer) => {
-  let lines = buffer.toString().split(EOL).filter((x) => x !== '')
-  lines.forEach((line, index, arr) => {
-    let processed = nawk(line, argv)
-    let end = index === arr.length - 1 ? '' : `${EOL}`
-    process.stdout.write(`${processed}${end}`)
+  inputStream.on('error', (e) => {
+    if (e.code === 'ENOENT') {
+      console.warn(`Specified input file: ${e.path} does not exist`)
+    } else {
+      throw e
+    }
   })
-})
+
+  inputStream.on('data', (buffer) => {
+    let lines = buffer.toString().split(EOL).filter((x) => x !== '')
+
+    lines.forEach((line, index, arr) => {
+      let processed = nawk(line, argv)
+      process.stdout.write(`${processed}${EOL}`)
+    })
+  })
+}
