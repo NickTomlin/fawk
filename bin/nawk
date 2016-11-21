@@ -2,6 +2,7 @@
 'use strict'
 
 let createReadStream = require('fs').createReadStream
+let EOL = require('os').EOL
 let argv = process.argv.slice(2)
 let nawk = require('../index')
 let inputStream
@@ -33,8 +34,10 @@ inputStream.on('error', (e) => {
 })
 
 inputStream.on('data', (buffer) => {
-  // consider splitting on OS line delim here?
-  let dataChunk = buffer.toString();
-  let processed = nawk(dataChunk, argv)
-  process.stdout.write(processed)
+  let lines = buffer.toString().split(EOL).filter((x) => x !== '')
+  lines.forEach((line, index, arr) => {
+    let processed = nawk(line, argv)
+    let end = index === arr.length - 1 ? '' : `${EOL}`
+    process.stdout.write(`${processed}${end}`)
+  })
 })
