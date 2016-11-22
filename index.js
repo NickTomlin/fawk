@@ -22,7 +22,7 @@ class Nawk {
       })) {
         return command.fn(processedLine)
       } else {
-        return line
+        return processedLine
       }
     }, processedLine)
   }
