@@ -16,3 +16,5 @@ env:
   - TEST_COMMAND='test'
   - TEST_COMMAND='lint'
   - TEST_COMMAND='test:integration'
+ignore:
+  - README.md
