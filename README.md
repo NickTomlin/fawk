@@ -1,7 +1,7 @@
 nawk
 ---
 
-Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk. This is an attempt to cover some simple use cases of awk without creating a flow blown programming language.
+Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk. This is an attempt to cover some simple use cases of awk without creating a full blown programming language.
 
 ```shell
 nawk <filename> <expression: '$0'> <options>
