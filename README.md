@@ -1,7 +1,7 @@
 nawk
 ---
 
-Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk.
+Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk. This is an attempt to cover some simple use cases of awk without creating a flow blown programming language.
 
 ```shell
 nawk <filename> <expression: '$0'> <options>
@@ -39,3 +39,26 @@ cat my_file | nawk '"\1"' --append ',' --unless '/oh/'
 "oh"
 "nawk",
 ```
+
+Contributing
+---
+
+After cloning this repo:
+
+```
+# Unit and linting
+npm t
+
+
+# Unit tests
+npm run test:unit
+
+# Linting
+npm run lint
+
+# Integration tests
+# ensure that python and cram are installed (pip install cram)
+npm run test:integration
+```
+
+Integration tests use [cram](https://bitheap.org/cram/)
