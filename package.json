@@ -10,7 +10,8 @@
     "optimist": "*"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "test:integration": "NAWK_PATH=`pwd` cram ./test/integration/*.t"
   },
   "keywords": [],
   "author": "",
