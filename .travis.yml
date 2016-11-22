@@ -10,7 +10,7 @@ node_js:
   - 7
 before_script:
   - npm prune
-  - 'pip install cram'
+  - 'pip install --user cram'
 script: npm run $TEST_COMMAND
 env:
   - TEST_COMMAND='test'
