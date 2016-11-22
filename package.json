@@ -1,8 +1,11 @@
 {
   "name": "nawk",
-  "version": "1.0.0",
-  "description": "Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk.",
+  "version": "0.1.0",
+  "description": "Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk",
   "main": "index.js",
+  "engines": {
+    "node": ">=6.0.x"
+  },
   "dependencies": {
     "ava": "^0.16.0"
   },
@@ -13,7 +16,10 @@
     "test": "ava",
     "test:integration": "NAWK_PATH=`pwd` cram ./test/integration/*.t"
   },
+  "bin": {
+    "nawk": "bin/nawk"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Nick Tomlin <nick.tomlin@gmail.com>",
   "license": "ISC"
 }
