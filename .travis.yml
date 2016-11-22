@@ -10,5 +10,9 @@ node_js:
   - 7
 before_script:
   - npm prune
-  - 'curl -Lo travis_after_all.py https://git.io/vLSON'
-script: npm run test && npm run test:integration
+  - 'pip install cram'
+script: npm run $TEST_COMMAND
+env:
+  - TEST_COMMAND='test'
+  - TEST_COMMAND='lint'
+  - TEST_COMMAND='test:integration'
