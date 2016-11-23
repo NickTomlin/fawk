@@ -1,4 +1,4 @@
-fawk [![npm version](https://badge.fury.io/js/fawk.svg)](https://badge.fury.io/js/fawk) [![ci](https://travis-ci.org/NickTomlin/fawk.svg?branch=master)]
+fawk [![npm version](https://badge.fury.io/js/fawk.svg)](https://badge.fury.io/js/fawk) [![ci](https://travis-ci.org/NickTomlin/fawk.svg?branch=master)](https://travis-ci.org/NickTomlin/fawk)
 ---
 
 Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk. This is an attempt to cover some simple use cases of awk without creating a full blown programming language.
