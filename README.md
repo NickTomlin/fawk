@@ -3,10 +3,21 @@ fawk [![npm version](https://badge.fury.io/js/fawk.svg)](https://badge.fury.io/j
 
 Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk. This is an attempt to cover some simple use cases of awk without creating a full blown programming language.
 
+Installation:
+
 ```shell
+npm i -g fawk
+```
+
+Usage
+
+```
 fawk <filename> <expression: '$0'> <options>
 input | fawk <expression: '$0'> <options>
 ```
+
+Examples
+---
 
 Surround each item with double quotes:
 
