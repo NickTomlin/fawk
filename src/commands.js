@@ -10,7 +10,7 @@ function prepend (item, input) {
 
 const isRegexRe = /^\/.*\/$/
 
-function nawkIf (arg, input) {
+function fawkIf (arg, input) {
   if (isRegexRe.test(arg)) {
     arg = arg.slice(1, arg.length - 1)
   }
@@ -20,7 +20,7 @@ function nawkIf (arg, input) {
 }
 
 function unless (arg, input) {
-  return !nawkIf(arg, input)
+  return !fawkIf(arg, input)
 }
 
 const commands = {
@@ -34,7 +34,7 @@ const commands = {
   },
   if: {
     type: 'condition',
-    fn: nawkIf
+    fn: fawkIf
   },
   unless: {
     type: 'condition',

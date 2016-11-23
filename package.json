@@ -1,7 +1,7 @@
 {
-  "name": "nawk",
+  "name": "fawk",
   "version": "0.1.0",
-  "description": "Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk",
+  "description": "Faux awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk",
   "main": "index.js",
   "engines": {
     "node": ">=6.0.x"
@@ -15,10 +15,10 @@
     "test": "npm run lint && npm run test:unit",
     "test:unit": "ava",
     "lint": "standard",
-    "test:integration": "NAWK_PATH=`pwd` cram ./test/integration/*.t"
+    "test:integration": "FAWK_PATH=`pwd` cram ./test/integration/*.t"
   },
   "bin": {
-    "nawk": "bin/nawk"
+    "fawk": "bin/fawk"
   },
   "keywords": [],
   "author": "Nick Tomlin <nick.tomlin@gmail.com>",

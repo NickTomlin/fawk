@@ -1,11 +1,11 @@
-nawk
+fawk
 ---
 
 Not awk: awk for people who want to hack a bunch of text and don't want the power or complexity of awk. This is an attempt to cover some simple use cases of awk without creating a full blown programming language.
 
 ```shell
-nawk <filename> <expression: '$0'> <options>
-input | nawk <expression: '$0'> <options>
+fawk <filename> <expression: '$0'> <options>
+input | fawk <expression: '$0'> <options>
 ```
 
 Surround each item with double quotes:
@@ -13,31 +13,31 @@ Surround each item with double quotes:
 ```
 # myfile.txt
 oh
-nawk
+fawk
 ```
 
 ```
-cat my_file | nawk '"$1"'
+cat my_file | fawk '"$1"'
 "oh"
-"nawk"
+"fawk"
 ```
 
 Surround each item with double quotes and append a comma:
 
 ```
-cat my_file | nawk '"$1"' --append ','
+cat my_file | fawk '"$1"' --append ','
 
 "oh",
-"nawk",
+"fawk",
 ```
 
 Surround each item with double quotes and append a comma, but not on lines that contain the phrase 'oh'
 
 ```
-cat my_file | nawk '"\1"' --append ',' --unless '/oh/'
+cat my_file | fawk '"\1"' --append ',' --unless '/oh/'
 
 "oh"
-"nawk",
+"fawk",
 ```
 
 Contributing

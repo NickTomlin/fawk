@@ -7,8 +7,8 @@ let argv = process.argv.slice(2)
 let Nawk = require('../index')
 
 function usage () {
-  console.log('nawk <expression> <commands> <options>')
-  console.log('nawk file.txt \'$1\' --append ,')
+  console.log('fawk <expression> <commands> <options>')
+  console.log('fawk file.txt \'$1\' --append ,')
 }
 
 // dang MB is a smart fellow http://stackoverflow.com/a/15485424/1048479
@@ -39,10 +39,10 @@ function main (inputStream) {
 
   inputStream.on('data', (buffer) => {
     let lines = buffer.toString().split(EOL).filter((x) => x !== '')
-    let nawk = new Nawk(argv)
+    let fawk = new Nawk(argv)
 
     lines.forEach((line, index, arr) => {
-      let processed = nawk.processLine(line)
+      let processed = fawk.processLine(line)
       process.stdout.write(`${processed}${EOL}`)
     })
   })
